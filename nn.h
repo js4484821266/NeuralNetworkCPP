@@ -15,13 +15,10 @@ namespace js4484821266
 	)
 	{
 		long double dx = 1, t;
-		size_t ll = 0x10;
 		while (
-			ll &&
-			x + (t = dx / (1 << ll)) > x
+			x + (t = dx / 2) > x
 		)
-			if (t <= 0)ll /= 2;
-			else dx = t;
+			dx = t;
 		long double dy1, dy0;
 		while (
 			abs(dy1 = f(x + dx) - f(x)) <= 0 &&
