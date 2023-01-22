@@ -35,5 +35,6 @@ namespace js4484821266
 	public:
 		std::vector<std::vector<long double>> w;
 		long double (*f)(long double) = sigmoid;
+		hidden_layer* next = nullptr;
 	};
 }
