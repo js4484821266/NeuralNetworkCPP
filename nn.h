@@ -14,7 +14,20 @@ namespace js4484821266
 		const long double x
 	)
 	{
-		return (f(x + delta(x)) - f(x)) / delta(x);
+		long double dx = 1, t;
+		size_t ll = 0x10;
+		while (
+			ll &&
+			x + (t = dx / (1 << ll)) > x
+		)
+			if (t <= 0)ll /= 2;
+			else dx = t;
+		long double dy1, dy0;
+		while (
+			abs(dy1 = f(x + dx) - f(x)) <= 0 &&
+			abs(dy0 = f(x) - f(x - dx)) <= 0
+		)
+			dx *= 2;
 	}
 
 	class hidden_layer
