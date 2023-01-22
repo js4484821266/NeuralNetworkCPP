@@ -9,7 +9,7 @@ namespace js4484821266
 		return 1 / (1 + exp(-x));
 	}
 
-	inline long double analytic_d_dx(
+	inline long double d_dx(
 		long double (*f)(long double),
 		const long double x
 	)
