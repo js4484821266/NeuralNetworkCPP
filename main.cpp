@@ -10,8 +10,8 @@ int main(void)
 {
 	std::cout
 		<< js4484821266::d_dx(
-			exp,
-			1.
+			sqrt,
+			2
 		)
 		<< std::endl;
 	return 0;
