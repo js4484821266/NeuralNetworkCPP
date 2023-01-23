@@ -21,7 +21,7 @@ namespace js4484821266
 			dx = t;
 		long double dy1, dy0;
 		while (
-			abs(dy1 = f(x + dx) - f(x)) <= 0 &&
+			abs(dy1 = f(x + dx) - f(x)) <= 0 ||
 			abs(dy0 = f(x) - f(x - dx)) <= 0
 		)
 			dx *= 2;
