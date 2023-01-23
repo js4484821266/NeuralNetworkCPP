@@ -15,17 +15,10 @@ namespace js4484821266
 	)
 	{
 		long double dx = 1, t;
-		while (
-			x + (t = dx / 2) > x
-		)
+		while (x + (t = dx / 2) > x)
 			dx = t;
-		long double dy1, dy0;
-		while (
-			abs(dy1 = f(x + dx) - f(x)) <= 0 ||
-			abs(dy0 = f(x) - f(x - dx)) <= 0
-		)
-			dx *= 2;
-		return (abs(dy1) + abs(dy0)) / dx / 2;
+		dx = sqrt(dx);
+		return (f(x + dx) - f(x - dx)) / (dx * 2);
 	}
 
 	class hidden_layer
