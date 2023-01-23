@@ -8,11 +8,6 @@ long double f(const long double x)
 
 int main(void)
 {
-	std::cout
-		<< js4484821266::d_dx(
-			sqrt,
-			2
-		)
-		<< std::endl;
+	printf("%.20Lf\n", js4484821266::d_dx(exp, 1));
 	return 0;
 }
