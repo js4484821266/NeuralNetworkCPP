@@ -8,6 +8,6 @@ long double f(const long double x)
 
 int main(void)
 {
-	printf("%.25Lf\n", js4484821266::d_dx(f, 2));
+	printf("%.25Lf\n", js4484821266::d_dx(log, 2));
 	return 0;
 }
