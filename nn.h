@@ -25,7 +25,7 @@ namespace js4484821266
 			abs(dy0 = f(x) - f(x - dx)) <= 0
 		)
 			dx *= 2;
-		// TODO
+		return (abs(dy1) + abs(dy0)) / dx / 2;
 	}
 
 	class hidden_layer
