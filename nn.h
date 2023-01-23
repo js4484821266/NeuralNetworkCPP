@@ -14,18 +14,18 @@ namespace js4484821266
 		const long double x
 	)
 	{
-		long double dx = 1, t;
-		while (x + (t = dx / 2) > x)
-			dx = t;
-		dx = sqrt(dx);
-		return (f(x + dx) - f(x - dx)) / (dx * 2);
+		long double dx = 1 << 1, y0, y1, dy_dx = 1 / LDBL_EPSILON, t;
+		while (
+			x + dx > x
+			&& x - dx < x
+			&& abs(y1 = f(x + dx) - f(x)) > dx
+			&& abs(y0 = f(x) - f(x - dx)) > dx
+			&& dy_dx > (t = (y1 + y0) / (dx * 2))
+		)
+		{
+			dy_dx = t;
+			dx /= 2;
+		}
+		return dy_dx;
 	}
-
-	class hidden_layer
-	{
-	public:
-		std::vector<std::vector<long double>> w;
-		long double (*f)(long double) = sigmoid;
-		hidden_layer* next = nullptr;
-	};
 }
